@@ -16,10 +16,13 @@ def get_token(username,password):
     token = ''
     response = requests.post('https://cipapi.genomicsengland.nhs.uk/api/2/get-token/', {'username': username, 'password': password})
     if response.status_code == 200:
-    #??add try/except statement to handle if status code is not 200
         token = response.json()['token']
     else:
         token = "Failed to get token- unable to proceed"
+    try:
+        token = response.json()['token']
+    except KeyError:
+        print(token)
     return token
 
 
@@ -44,7 +47,7 @@ def write_results(token):
     '''uses the get_results() function to get a page of results from the API, write them to a file, then get the next page.
     '''
     date= datetime.datetime.now().strftime("%y-%m_%d")
-    outfilename = str("CIPAPI_Output_"+date)
+    outfilename = str("CIPAPI_Output_"+date + ".csv")
     page_no = 1
     while True:
         result = get_results(token,page_no)
