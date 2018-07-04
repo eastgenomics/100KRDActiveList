@@ -10,4 +10,4 @@ Takes a username and password for the CIPAPI, generates a token and returns:
 * date_updated  
 * CIP 
 
-output is to a text file that can be added to the active list.
+output is to a text file (comma separated) that can be added to the active list.
