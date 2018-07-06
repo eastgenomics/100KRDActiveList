@@ -46,6 +46,9 @@ def write_results(token):
     '''
     date= datetime.datetime.now().strftime("%y-%m_%d")
     outfilename = str("CIPAPI_Output_"+date + ".csv")
+    f = open(outfilename, 'a')
+    f.write('ProbandIF,Family_ID,last_status,build,IR_id,date_updated,CIP'+'\n') #add headers to the output file
+    f.close()
     page_no = 1
     while True:
         result = get_results(token,page_no)
