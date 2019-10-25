@@ -4,7 +4,7 @@
 ## Author: Rebecca Haines (rebecca.haines@nuh.nhs.uk)
 ## Date: 06/07/2018
 ## Code reviewed by: Simon BOARDMAN 05/06/2018
-## Version: 1.0
+## Version: 1.1
 
 ### use the swagger page to get the info https://cipapi.genomicsengland.nhs.uk/api/2/docs/#
 
