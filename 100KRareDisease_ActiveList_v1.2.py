@@ -16,9 +16,9 @@ import json
 
 def get_token():
     '''Return access token for CIPAPI using AD client credentials
-    Credentials are stored in the file "credentials.json"
+    Credentials are stored in the file "credentials_live.json"
     '''
-    credentials_file = open('credentials.json')
+    credentials_file = open('credentials_live.json')
     credentials = json.load(credentials_file)
     tenant_ID = credentials['tenant_ID']
     client_ID = credentials['client_ID']
@@ -50,7 +50,7 @@ def get_results(token,page):
     }
     page_no = page
     page_size = 100
-    url = 'https://cipapi-gms-beta.genomicsengland.nhs.uk/api/2/interpretation-request?page={page}&page_size={page_size}&category=100k&workspace=RGT' # pulls 100k results only from RGT
+    url = 'https://cipapi.genomicsengland.nhs.uk/api/2/interpretation-request?page={page}&page_size={page_size}&workspace=RX1&category=100k' 
     response2 = requests.get(url.format(page=page_no, page_size=page_size), \
     headers=auth_header)
     result = response2.json()
